@@ -1,28 +1,35 @@
 package com.company;
 
-import com.company.candy.KitKat;
-import com.company.candy.Snickers;
-import com.company.candy.Twix;
-import com.company.crips.Doritos;
-import com.company.crips.Lays;
-import com.company.crips.Pringles;
-import com.company.drinks.Cola;
-import com.company.drinks.Fanta;
-import com.company.drinks.Pepsi;
+import com.company.product.ProductType;
+import com.company.product.candy.Kitkat;
+import com.company.product.candy.Snickers;
+import com.company.product.candy.Twix;
+import com.company.product.crips.Doritos;
+import com.company.product.crips.Lays;
+import com.company.product.crips.Pringles;
+import com.company.product.drinks.Cola;
+import com.company.product.drinks.Fanta;
+import com.company.product.drinks.Pepsi;
+import com.company.product.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Queue;
+
 
 public class VendMachine {
-    private HashMap<ProductType, Queue<Product>> productBoard = new HashMap<>();
-
-
+    private HashMap<ProductType, ArrayList<Product>> productBoard = new HashMap<>();
+    private int theProduct;
+    private ProductType productType;
 
     public VendMachine(int theProduct, ProductType productType ) {
 
+        this.theProduct = theProduct;
+        this.productType = productType;
+
         quantityProductInitilizeBoard();
+        printProductBoard();
+
+        getProduct(this.productType, theProduct);
 
     }
 
@@ -34,19 +41,24 @@ public class VendMachine {
     }
 
     private void initilizeBoard() {
+
         Cola cola = new Cola();
         Pepsi pepsi = new Pepsi();
         Fanta fanta = new Fanta();
+
         ArrayList<Product> drinks = new ArrayList<>();
+
         drinks.add(cola);
         drinks.add(fanta);
         drinks.add(pepsi);
 
 
-        KitKat kitkat = new KitKat();
+        Kitkat kitkat = new Kitkat();
         Snickers snickers = new Snickers();
         Twix twix = new Twix();
+
         ArrayList<Product> candys = new ArrayList<>();
+
         candys.add(kitkat);
         candys.add(snickers);
         candys.add(twix);
@@ -54,7 +66,9 @@ public class VendMachine {
         Doritos doritos = new Doritos();
         Lays lays = new Lays();
         Pringles pringles = new Pringles();
+
         ArrayList<Product> crisps = new ArrayList<>();
+
         crisps.add(doritos);
         crisps.add(lays);
         crisps.add(pringles);
@@ -65,8 +79,33 @@ public class VendMachine {
         productBoard.put(ProductType.CRIPS,  crisps);
 
     }
+    public void printProductBoard(){
+
+        System.out.println(productBoard.get(ProductType.CRIPS));
+
+        System.out.println(productBoard.get(ProductType.CANDY));
+
+        System.out.println(productBoard.get(ProductType.DRINKS));
+
+    }
     public void getProduct(ProductType productType, int theProduct)
     {
-        productBoard.get(productType);
+        productBoard.get(productType).get(theProduct).getProduct();
+
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

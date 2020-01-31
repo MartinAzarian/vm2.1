@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.comand.ConvertToComand;
+
 import java.util.Scanner;
 
 public class Main {
@@ -13,6 +15,10 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         String userComand = scanner.nextLine();
+        if (userComand.length() < 3)
+        {
+            throw new StringIndexOutOfBoundsException("lenght error");
+        }
         return userComand;
     }
 
