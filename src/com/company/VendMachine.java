@@ -92,7 +92,7 @@ public class VendMachine {
     public void getProduct(ProductType productType, int theProduct)
     {
         productBoard.get(productType).get(theProduct).getProduct();
-
+        productBoard.remove(productType, theProduct);
     }
 
     @Override
