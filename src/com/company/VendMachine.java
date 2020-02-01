@@ -76,11 +76,17 @@ public class VendMachine {
     }
     public void printProductBoard(){
 
-        System.out.println(productBoard.get(ProductType.CRIPS));
+        System.out.print(productBoard.get(ProductType.CRIPS).get(0).getClass() + " ");
+        System.out.print(productBoard.get(ProductType.CRIPS).get(1).getClass() + " ");
+        System.out.print(productBoard.get(ProductType.CRIPS).get(2).getClass() + " ");
 
-        System.out.println(productBoard.get(ProductType.CANDY));
+        System.out.println(productBoard.get(ProductType.CANDY).get(0).getClass() + " ");
+        System.out.print(productBoard.get(ProductType.CANDY).get(1).getClass() + " ");
+        System.out.print(productBoard.get(ProductType.CANDY).get(2).getClass() + " ");
 
-        System.out.println(productBoard.get(ProductType.DRINKS));
+        System.out.println(productBoard.get(ProductType.CANDY).get(0).getClass() + " ");
+        System.out.print(productBoard.get(ProductType.DRINKS).get(1).getClass() + " ");
+        System.out.print(productBoard.get(ProductType.DRINKS).get(2).getClass() + " ");
 
     }
     public void getProduct(ProductType productType, int theProduct)
