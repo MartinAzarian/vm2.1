@@ -26,38 +26,33 @@ public class VendMachine {
         this.theProduct = theProduct;
         this.productType = productType;
 
-        quantityProductInitilizeBoard();
+        initilizeBoard()
         printProductBoard();
 
         getProduct(this.productType, theProduct);
 
     }
 
-    private void quantityProductInitilizeBoard()
-    {
-        for (int i = 0; i < 10; i++) {
-            initilizeBoard();
-        }
-    }
 
     private void initilizeBoard() {
+        
+        ArrayList<Product> drinks = new ArrayList<>();
+        ArrayList<Product> candys = new ArrayList<>();
+        ArrayList<Product> crisps = new ArrayList<>();
 
+        for(int i = 0; i < 10; i++){
+            
         Cola cola = new Cola();
         Pepsi pepsi = new Pepsi();
         Fanta fanta = new Fanta();
-
-        ArrayList<Product> drinks = new ArrayList<>();
-
+            
         drinks.add(cola);
         drinks.add(fanta);
         drinks.add(pepsi);
 
-
         Kitkat kitkat = new Kitkat();
         Snickers snickers = new Snickers();
         Twix twix = new Twix();
-
-        ArrayList<Product> candys = new ArrayList<>();
 
         candys.add(kitkat);
         candys.add(snickers);
@@ -66,12 +61,12 @@ public class VendMachine {
         Doritos doritos = new Doritos();
         Lays lays = new Lays();
         Pringles pringles = new Pringles();
-
-        ArrayList<Product> crisps = new ArrayList<>();
-
+            
         crisps.add(doritos);
         crisps.add(lays);
         crisps.add(pringles);
+            
+        }
 
 
         productBoard.put(ProductType.CANDY, candys);
